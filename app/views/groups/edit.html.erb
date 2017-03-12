@@ -1,5 +1,18 @@
 <div class="col-md-4 col-md-offset-4">
   <h2>编辑群组</h2>
   <hr>
-  <%= render "form" %>
+  <%= simple_form_for @group do |f| %>
+  <div class="form-group">
+    <%= f.input :title, input_html: {class: "form-control"} %>
+    <%= f.input :description, input_html: {class: "form-control"} %>
+     <% if @group.image.present? %>
+     <span>目前商品图</span> <br>
+     <%= image_tag(@group.image.thumb.url) %>
+      <% end %>
+
+    <%= f.input :image, as: :file %>
+  </div>
+  <%= f.submit "Submit", class: "btn btn-primary", data: { disable_with: "Submitting..."} %>
+  <% end %>
+
 </div>
