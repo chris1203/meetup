@@ -9,6 +9,12 @@
       <%= link_to("Delete", group_path(group),    class: "btn btn-sm btn-default",
                   method: :delete, data: { confirm: "Are you sure?" } )%>
     <% end %>
+    <%= link_to group_path(group) do %>
+      <% if group.image.present? %>
+        <%= image_tag(group.image.thumb.url, class: "thumbnail") %>
+      <% else %>
+        <li class="round-image-50">  <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %></li>
+      <% end %>
+    <% end %>
   </td>
-
 </tr>

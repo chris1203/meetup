@@ -37,4 +37,11 @@
   <div class="text-center">
     <%= will_paginate @posts %>
   </div>
+
+
+  <% @group.members.all.each do |user| %>
+  <%= user.name%>
+  <%= image_tag(user.avatar.url(:thumb)) %>
+  <% end %>
+
 </div>
