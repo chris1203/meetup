@@ -6,7 +6,17 @@ class User < ApplicationRecord
   has_many :groups
   has_many :posts
   has_many :group_relationships
+  has_many :owned_groups, :through => :group_relationships, :source => :group
   has_many :participated_groups, :through => :group_relationships, :source => :group
+  def is_owner_of?(group)
+    owned_groups.include?(group)
+  end
+  def own!(group)
+    owned_groups << group
+  end
+  def disown!(group)
+    owned_groups.delete(group)
+  end
   def is_member_of?(group)
     participated_groups.include?(group)
   end
