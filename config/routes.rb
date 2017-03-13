@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       post :quit
     end
     resources :posts
+    resources :events
   end
   namespace :account do
     resources :groups

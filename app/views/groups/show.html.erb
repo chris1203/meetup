@@ -14,12 +14,38 @@
       <% end %>
     </span>
     <%= link_to("Write a Post", new_group_post_path(@group), class: "btn btn-default pull-right") %>
+    <%= link_to("New Meetup", new_group_event_path(@group), class: "btn btn-primary pull-right") %>
     <% if current_user && current_user == @group.user %>
      <%= link_to("Edit", edit_group_path(@group), class: "btn btn-primary pull-right") %>
     <% end %>
   </div>
   <h2><%= @group.title %></h2>
   <p><%= @group.description %></p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Event Topic</th>
+        <th>Location</th>
+        <th>Schedule</th>
+        <th>detail</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @events.each do |event| %>
+      <tr>
+        <td><%= event.topic %></td>
+        <td><%= event.location %></td>
+        <td><%= event.time %></td>
+        <td><%= event.description %></td>
+        <% if event.group.user == current_user %>
+        <td>
+        <%= link_to("edit event", edit_group_event_path(@group, event)) %>
+        </td>
+        <% end %>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
   <table class="table">
     <thead>
       <tr>

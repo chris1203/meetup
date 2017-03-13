@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170312062438) do
+ActiveRecord::Schema.define(version: 20170313033156) do
+
+  create_table "events", force: :cascade do |t|
+    t.string   "topic"
+    t.text     "description"
+    t.string   "location"
+    t.datetime "time"
+    t.integer  "user_id"
+    t.integer  "group_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "group_relationships", force: :cascade do |t|
     t.integer  "group_id"
