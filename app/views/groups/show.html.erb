@@ -37,6 +37,11 @@
         <td><%= event.location %></td>
         <td><%= event.time %></td>
         <td><%= event.description %></td>
+        <% if event.group.user == current_user %>
+        <td>
+        <%= link_to("edit event", edit_group_event_path(@group, event)) %>
+        </td>
+        <% end %>
       </tr>
       <% end %>
     </tbody>

@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_group, only: [:new, :create]
-  before_action :require_is_owner, only: [:new, :create]
+  before_action :set_group, only: [:new, :create, :edit, :update]
+  before_action :require_is_owner, only: [:new, :create, :edit, :update]
 
   def new
     @event = Event.new
@@ -16,7 +16,17 @@ class EventsController < ApplicationController
       render :new
     end
   end
-
+  def edit
+    @event = Event.find(params[:id])
+  end
+  def update
+    @event = Event.find(params[:id])
+    if @event.update(event_params)
+      redirect_to group_path(@group)
+    else
+      render :edit
+    end
+  end
 private
   def event_params
     params.require(:event).permit(:topic, :time, :location, :description)
