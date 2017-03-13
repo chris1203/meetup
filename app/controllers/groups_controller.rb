@@ -18,6 +18,7 @@ class GroupsController < ApplicationController
     @group.user = current_user
     if @group.save
       current_user.join!(@group)
+      current_user.own!(@group)
       redirect_to groups_path
     else
       render :new
