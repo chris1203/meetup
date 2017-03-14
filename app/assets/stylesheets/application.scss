@@ -16,17 +16,105 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import url('https://fonts.googleapis.com/css?family=Leckerli+One');
 
-// 头像
- .round-image-50 {
-     background-color: white;
-     border: 1px solid #d9d9d9;
-     border-radius: 25px;
-     -moz-border-radius: 25px;
-     -webkit-border-radius: 25px;
-     height: 50px;
-     width: 50px;
-     overflow: hidden;
-     text-align: center;
-     img { width: 100% }
- }
+
+//common
+.container-fluid{
+  padding: 0;
+}
+
+//groups index page navbar
+
+
+.navbar-default {
+  background-color: #fff;
+  border-color: #e7e7e7;
+  .navbar-header{
+    margin-top: 5px;
+    margin-left: 16px;
+    .navbar-brand{
+      color:#666;
+      font-size:25px;
+      padding-top: 17px;
+      &:hover,&:focus{
+        text-decoration: none;
+        color:rgba(30,204,149,0.86);
+        background-color: #fff;
+      }
+    }
+  }
+  .navbar-nav > li > a {
+    color:#666;
+    &:hover,&:focus{
+      color:rgba(30,204,149,0.86);
+    }
+  }
+  p{
+    font-size:40px;
+    font-family: 'Leckerli One', cursive;
+    color:rgba(30,204,149,0.86);
+    letter-spacing: 2px;
+    margin-bottom: 0;
+    margin-top: 2px;
+  }
+  .navbar-right {
+    margin-right: 0px;
+    font-size: 16px;
+    .dropdown {
+      padding-top: 5px;
+      padding-bottom: 5px;
+      img {
+          background-color: white;
+          border: 1px solid #d9d9d9;
+          border-radius: 15px;
+          -moz-border-radius: 15px;
+          -webkit-border-radius: 15px;
+          height: 30px;
+          width: 30px;
+          overflow: hidden;
+      }
+    }
+  }
+  .navbar-nav > .open > a {
+    background-color: #fff !important;
+    color: #666;
+  }
+  .dropdown-menu > li > a {
+    color:#666;
+    &:hover,&:focus{
+      text-decoration: none;
+      color:rgba(30,204,149,0.86);
+      background-color: #fff;
+    }
+  }
+  .btn{
+    border-radius: 3px;
+    height: 37px;
+    width: 92px;
+    text-align: center;
+    font-size: 16px;
+    letter-spacing: 2px;
+    padding: 0 !important;
+    line-height: 32px !important;
+  }
+  a.btn.log-in-btn {
+    border: 1px solid rgba(30,204,149,0.86);
+    background-color: transparent;
+    margin: 14px 5px 14px 15px;
+    color: rgba(30,204,149,0.86);
+    &:hover{
+      color: rgba(30,204,149,0.86);
+    }
+  }
+  a.btn.sign-up-btn {
+    border: 1px solid #1ecd97;
+    background-color: rgba(30,204,149,0.86);
+    margin: 14px 0 14px 15px;
+    color: #fff;
+    &:hover{
+      background-color: rgba(30,204,149,0.86);
+      color: #fff;
+    }
+  }
+}
